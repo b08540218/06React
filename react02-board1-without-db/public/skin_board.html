@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 5px;}
+    input,textarea {width: 95%;}
+    input[type=submit]{width: 100px;}
+    #boardTable{
+      border: 1px solid gray; border-collapse: collapse; width: 500px;
+    }
+    #boardTable tr{
+      text-align: center;
+    }
+    #boardTable tr, td{
+      border: 1px solid gray;
+    }
+    #boardTable td{
+      text-align: left;
+    }
+    #boardTable td.cen{
+      text-align: center;
+      
+    }#boardTable td,subject{
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>게시판-목록</h2>
+  </header>
+  <nav>
+    <a href="/">글쓰기</a>
+  </nav>
+  <article>
+    <table id="borderTable">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>날짜</th>
+        </tr>
+      </thead>
+      <tr>
+        <td className="cen">1</td>
+        <td>오늘은 React공부하는날</td>
+        <td className="cen">낙짜쌤</td>
+        <td className="cen">2030-0505</td>
+      </tr>
+    </table>
+  </article>
+  <hr>
+  <header>
+    <h2>게시판-읽기</h2>
+  </header>
+  <nav>
+    <a href="/">목록</a>&nbsp;
+    <a href="/">수정</a>&nbsp;
+    <a href="/">삭제</a>
+  </nav>
+  <article>
+    <table id="borderTable">
+    <colgroup>
+    <col width="30%"/><col widthd="*" />
+    </colgroup>
+    <tbody>
+      <tr>
+        <th>작성자</th>
+        <th>성유겸</th>
+      </tr>
+      <tr>
+        <th>제목</th>
+        <td>오늘은 React공부하는날</td>
+      </tr>
+      <tr>
+        <th>날짜</th> 
+        <td>2023-05-05</td>
+      </tr>
+      <tr>
+        <th>내용</th>
+        <td>열심히 해봅시다<br>열공 합시다.</td>
+      </tr>
+    </tbody>
+    </table>
+  </article>
+  <hr>
+  <header>
+    <h2>게시판-작성</h2>
+  </header>
+  <nav>
+    <a href="/">목록</a>
+  </nav>
+  <article>
+    <form>
+    <table id="borderTable">
+    <tbody>
+      <tr>
+        <th>작성자</th>
+        <td><input type="text" name="writer" /></td>
+      </tr>
+      <tr>
+        <th>제목</th>
+        <td><input type="text" name="title" /></td>
+      </tr>
+      <tr>
+        <th>내용</th>
+        <td><textarea name="content" cols="22" rows="3"></textarea></td>
+      </tr>
+    </tbody>
+    </table>
+    <input type="submit" value="전송" />
+    </form>
+  </article>
+  <hr>
+</body>
+</html>

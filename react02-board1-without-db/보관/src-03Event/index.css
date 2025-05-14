@@ -19,14 +19,3 @@
     }#boardTable td,subject{
       text-align: left;
     }
-
-    /** 위쪽은 게시판, 아래쪽은 스타일 예제에서 사용  **/
-    .backEnd{
-    color: blue;
-    }
-    #backEndSub{
-    font-weight: bold; font-size: 1.5em;
-    }
-    .warnings{
-    color: white; background-color: red; font-size: 1.2em;
-    }
