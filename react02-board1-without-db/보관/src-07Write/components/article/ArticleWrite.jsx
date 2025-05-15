@@ -10,12 +10,7 @@ function ArticleWrite(props) {
         let title = event.target.title.value;
         let writer = event.target.writer.value;
         let contents = event.target.contents.value;
-        
-        // 빈값 검증
-        if (!title || !writer || !contents) {
-          alert("작성자, 제목, 내용을 모두 입력해주세요.");
-          return;
-        }
+
         // 3개의 폼값을 부모로 전달하여 쓰기처리 한다.
         props.writeAction(title, writer, contents);
       }}>

@@ -80,21 +80,18 @@ function App() {
   } 
   else if(mode==='view'){
     titleVar = '게시판-읽기(props)';
-    navComp = <NavView onChangeMode={(pmode)=>{ // pmode는 이랑 연결됨 NavView.jsx 8번 20번
+    navComp = <NavView onChangeMode={(pmode)=>{
       setMode(pmode);
     }}></NavView>
 
     console.log("현재no:", no,typeof(no));
     // 선택한 게시물의 일련번호와 일치하는 객체를 검색하기 위한 반복
-    selectRow = boardData.reduce((acc,cur)=>{
-      return cur.no == no ? cur : acc;
-    }, null);
-    // for (let i = 0; i < boardData.length; i++) {
-    //   if (no===boardData[i].no) {
-    //     // 일치하는 게시물이 있다면 변수에 저장
-    //     selectRow = boardData[i];
-    //   }
-    // }
+    for (let i = 0; i < boardData.length; i++) {
+      if (no===boardData[i].no) {
+        // 일치하는 게시물이 있다면 변수에 저장
+        selectRow = boardData[i];
+      }
+    }
     // 선택한 게시물을 프롭스를 통해 자식 컴포넌트로 전달
     articleComp = <ArticleView selectRow={selectRow}></ArticleView>
   }
@@ -162,16 +159,13 @@ function App() {
     // 새로운 빈 배열 생성
       let newBoardData = [];
       // 데이터의 갯수만큼 반복
-      selectRow = boardData.reduce((acc,cur)=>{
-        return cur.no === no ? cur : acc;
-      }, null);
-      // for (let i = 0; i < boardData.length; i++) {
-      //   // 삭제할려는 게시물이 아닌것만 새로운 배열에 추가한다.
-      //   if (no !== boardData[i].no) {
-      //     // 새로운 배열에는 삭제하려는 게시물이 추가되지 않는다
-      //     newBoardData.push(boardData[i]);
-      //   }
-      // }
+      for (let i = 0; i < boardData.length; i++) {
+        // 삭제할려는 게시물이 아닌것만 새로운 배열에 추가한다.
+        if (no !== boardData[i].no) {
+          // 새로운 배열에는 삭제하려는 게시물이 추가되지 않는다
+          newBoardData.push(boardData[i]);
+        }
+      }
       // 새로운 배열을 통해 스테이트를 변경하면 리렌더링이 된다.
       setBoardData(newBoardData);
       // 삭제(비추천)
@@ -208,35 +202,7 @@ function App() {
       }
     }
     // 수정할 게시물을 자식 컴포넌트로 전달
-    articleComp = <ArticleEdit selectRow={selectRow}
-    editAction={(t,w,c)=>{
-      /** 수정을 위한 객체를 생성. 단, 일련번호와 작성일은 기존의 값을
-        그대로 사용한다. */
-      let editBoardData = {no:no, title:t, writer:w, contents:c,
-              date:selectRow.date};
-        console.log('수정내용',editBoardData);
-
-        // 스프레드 연산자로 기존 배열데이터의 복사본을 생성한다.
-        const newBoardData = boardData.reduce((acc, cur)=>{
-          if (cur.no !== no) acc.push(cur);
-          return acc;
-        }, []);
-        // let copyBoardDate = [...boardData];
-        // for (let i = 0; i < copyBoardDate.length; i++) {
-        //   // 수정할 객체를 찾는다.
-        //   if (copyBoardDate[i].no===no) {
-        //     // 수정된 내용의 객체로 변경한다.
-        //     copyBoardDate[i] = editBoardData;
-        //     // 반복문 탈출
-        //     break;
-        //   }
-        // }
-        // // 복사본을 통해 스테이트를 변경한다.
-        setBoardData(copyBoardDate);
-        // 수정된 내용 확인을 위해  '열람' 화면으로 전환한다.
-        setMode('view');
-      }}
-    ></ArticleEdit>
+    articleComp = <ArticleEdit selectRow={selectRow}></ArticleEdit>
     }
   
   else{

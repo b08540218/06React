@@ -5,11 +5,9 @@ import { useState } from "react";
 import NavList from './components/navigation/NavList'
 import NavView from './components/navigation/NavView'
 import NavWrite from './components/navigation/NavWrite'
-import NavEdit from './components/navigation/NavEdit'
 import ArticleList from './components/article/ArticleList'
 import ArticleView from './components/article/ArticleView'
 import ArticleWrite from './components/article/ArticleWrite'
-import ArticleEdit from './components/article/ArticleEdit'
 
 
 // 페이지가 없을때 임시로 사용하기 위한 컴포넌트
@@ -60,11 +58,11 @@ function App() {
   const [nextNo, setNextNo] = useState(4);
   // 컴포넌트와 타이틀을 저장할 변수 생성
   // 선택할 게시물의 객체를 저장할 변수 추가 ("{no:1, title:'오늘은')
-  let articleComp, navComp,titleVar, selectRow;
+  let articleComp, navComp,titeVar, selectRow;
 
   // mode의 값에 따라 각 화면을 전환하기 위해 분기한다.
   if (mode==='list') {
-    titleVar = '게시판-목록(props)';
+    titeVar = '게시판-목록(props)';
     navComp = <NavList onChangeMode={()=>{
       setMode('write');
     }}></NavList>
@@ -79,27 +77,24 @@ function App() {
   }></ArticleList>
   } 
   else if(mode==='view'){
-    titleVar = '게시판-읽기(props)';
-    navComp = <NavView onChangeMode={(pmode)=>{ // pmode는 이랑 연결됨 NavView.jsx 8번 20번
+    titeVar = '게시판-읽기(props)';
+    navComp = <NavView onChangeMode={(pmode)=>{
       setMode(pmode);
     }}></NavView>
 
     console.log("현재no:", no,typeof(no));
     // 선택한 게시물의 일련번호와 일치하는 객체를 검색하기 위한 반복
-    selectRow = boardData.reduce((acc,cur)=>{
-      return cur.no == no ? cur : acc;
-    }, null);
-    // for (let i = 0; i < boardData.length; i++) {
-    //   if (no===boardData[i].no) {
-    //     // 일치하는 게시물이 있다면 변수에 저장
-    //     selectRow = boardData[i];
-    //   }
-    // }
+    for (let i = 0; i < boardData.length; i++) {
+      if (no===boardData[i].no) {
+        // 일치하는 게시물이 있다면 변수에 저장
+        selectRow = boardData[i];
+      }
+    }
     // 선택한 게시물을 프롭스를 통해 자식 컴포넌트로 전달
     articleComp = <ArticleView selectRow={selectRow}></ArticleView>
   }
   else if (mode==='write') {
-    titleVar = '게시판-쓰기(props)';
+    titeVar = '게시판-쓰기(props)';
     navComp = <NavWrite onChangeMode={()=>{
       setMode('list');
     }}></NavWrite>
@@ -162,16 +157,13 @@ function App() {
     // 새로운 빈 배열 생성
       let newBoardData = [];
       // 데이터의 갯수만큼 반복
-      selectRow = boardData.reduce((acc,cur)=>{
-        return cur.no === no ? cur : acc;
-      }, null);
-      // for (let i = 0; i < boardData.length; i++) {
-      //   // 삭제할려는 게시물이 아닌것만 새로운 배열에 추가한다.
-      //   if (no !== boardData[i].no) {
-      //     // 새로운 배열에는 삭제하려는 게시물이 추가되지 않는다
-      //     newBoardData.push(boardData[i]);
-      //   }
-      // }
+      for (let i = 0; i < boardData.length; i++) {
+        // 삭제할려는 게시물이 아닌것만 새로운 배열에 추가한다.
+        if (no !== boardData[i].no) {
+          // 새로운 배열에는 삭제하려는 게시물이 추가되지 않는다
+          newBoardData.push(boardData[i]);
+        }
+      }
       // 새로운 배열을 통해 스테이트를 변경하면 리렌더링이 된다.
       setBoardData(newBoardData);
       // 삭제(비추천)
@@ -186,59 +178,6 @@ function App() {
       setMode('list');
     }
   
-    else if (mode==='edit') {
-      titleVar = '게시판-수정(props)';
-
-      navComp = <NavEdit
-        onChangeMode={()=>{
-          // 목록으로 전환하는 기능
-          setMode('list');
-        }}
-        onBack={()=>{
-          // 열람으로 전환하는 기능
-          setMode('view');
-          setNo(no);
-        }
-      }></NavEdit>
-
-      // 데이터의 갯수만큼 반복해서 수정할 게시물 선택
-    for (let i = 0; i < boardData.length; i++) {
-      if (no===boardData[i].no) {
-        selectRow = boardData[i];
-      }
-    }
-    // 수정할 게시물을 자식 컴포넌트로 전달
-    articleComp = <ArticleEdit selectRow={selectRow}
-    editAction={(t,w,c)=>{
-      /** 수정을 위한 객체를 생성. 단, 일련번호와 작성일은 기존의 값을
-        그대로 사용한다. */
-      let editBoardData = {no:no, title:t, writer:w, contents:c,
-              date:selectRow.date};
-        console.log('수정내용',editBoardData);
-
-        // 스프레드 연산자로 기존 배열데이터의 복사본을 생성한다.
-        const newBoardData = boardData.reduce((acc, cur)=>{
-          if (cur.no !== no) acc.push(cur);
-          return acc;
-        }, []);
-        // let copyBoardDate = [...boardData];
-        // for (let i = 0; i < copyBoardDate.length; i++) {
-        //   // 수정할 객체를 찾는다.
-        //   if (copyBoardDate[i].no===no) {
-        //     // 수정된 내용의 객체로 변경한다.
-        //     copyBoardDate[i] = editBoardData;
-        //     // 반복문 탈출
-        //     break;
-        //   }
-        // }
-        // // 복사본을 통해 스테이트를 변경한다.
-        setBoardData(copyBoardDate);
-        // 수정된 내용 확인을 위해  '열람' 화면으로 전환한다.
-        setMode('view');
-      }}
-    ></ArticleEdit>
-    }
-  
   else{
     // mode의 값이 없는 경우 '준비물'을 화면에 표시한다.
     navComp = <ReadComp></ReadComp>
@@ -246,7 +185,7 @@ function App() {
   }
   return (<>
       <div className="App">
-        <Header title={titleVar}></Header>
+        <Header title={titeVar}></Header>
         {/* mode의 변화에 따라 다른 컴포넌트를 렌더링 한다. */}
         {navComp}
         {articleComp}
