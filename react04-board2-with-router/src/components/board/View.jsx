@@ -50,7 +50,7 @@ function View(props) {
       alert('다음 페이지가 없습니다!');
     }
     console.log('nextNum',nextNum);
-    props.navigate("/view/"+nextNum);
+    props.navigate("/view/"+ nextNum);
   }
 
   // console.log("파라미터",params.no);
