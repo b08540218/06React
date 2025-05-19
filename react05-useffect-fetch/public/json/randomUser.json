@@ -1,0 +1,290 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "Ms",
+        "first": "یسنا",
+        "last": "کامروا"
+      },
+      "location": {
+        "street": {
+          "number": 7859,
+          "name": "فلسطین"
+        },
+        "city": "دزفول",
+        "state": "کردستان",
+        "country": "Iran",
+        "postcode": 77254,
+        "coordinates": {
+          "latitude": "19.8566",
+          "longitude": "124.0069"
+        },
+        "timezone": {
+          "offset": "+10:00",
+          "description": "Eastern Australia, Guam, Vladivostok"
+        }
+      },
+      "email": "ysn.khmrw@example.com",
+      "login": {
+        "uuid": "fdefc96c-b53c-4373-b7c9-5d97738fe174",
+        "username": "purplefrog844",
+        "password": "sebastia",
+        "salt": "vmWoEpTE",
+        "md5": "35c2ab51a4f3a17ab23f20f99d47168f",
+        "sha1": "5a6911803492d82aa94226da5b87a4623c108452",
+        "sha256": "a8804020ffd5dc744e070ffd20102a879f21b783b0bb4e1caa8184497bd732cf"
+      },
+      "dob": {
+        "date": "1978-04-04T21:28:28.979Z",
+        "age": 47
+      },
+      "registered": {
+        "date": "2011-05-29T21:54:09.757Z",
+        "age": 13
+      },
+      "phone": "025-99042174",
+      "cell": "0990-027-3178",
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/47.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/47.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/47.jpg"
+      },
+      "nat": "IR"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Kristijan",
+        "last": "Popović"
+      },
+      "location": {
+        "street": {
+          "number": 2373,
+          "name": "Alekse Radovanovića"
+        },
+        "city": "Kovačica",
+        "state": "Podunavlje",
+        "country": "Serbia",
+        "postcode": 87044,
+        "coordinates": {
+          "latitude": "-64.1554",
+          "longitude": "103.1908"
+        },
+        "timezone": {
+          "offset": "+4:30",
+          "description": "Kabul"
+        }
+      },
+      "email": "kristijan.popovic@example.com",
+      "login": {
+        "uuid": "7f014b51-bdd2-468a-b058-d1580fd6b99c",
+        "username": "purplesnake854",
+        "password": "mnbvcxz",
+        "salt": "ewGd9ZzR",
+        "md5": "8319e0ab4130587a91798ff06aaae3ef",
+        "sha1": "eae2189f432d3d319dc91a64d3145d9028690726",
+        "sha256": "0b4c0d671d0642702d36354e5051c790987538ccfb62c5ba1bb096f617a5b706"
+      },
+      "dob": {
+        "date": "1952-12-20T16:03:29.264Z",
+        "age": 72
+      },
+      "registered": {
+        "date": "2010-08-16T19:14:24.038Z",
+        "age": 14
+      },
+      "phone": "029-1530-678",
+      "cell": "067-2663-380",
+      "id": {
+        "name": "SID",
+        "value": "640097989"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/77.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/77.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/77.jpg"
+      },
+      "nat": "RS"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Aleksi",
+        "last": "Couri"
+      },
+      "location": {
+        "street": {
+          "number": 2198,
+          "name": "Mannerheimintie"
+        },
+        "city": "Mikkeli",
+        "state": "Central Ostrobothnia",
+        "country": "Finland",
+        "postcode": 72869,
+        "coordinates": {
+          "latitude": "60.8041",
+          "longitude": "-127.2261"
+        },
+        "timezone": {
+          "offset": "-11:00",
+          "description": "Midway Island, Samoa"
+        }
+      },
+      "email": "aleksi.couri@example.com",
+      "login": {
+        "uuid": "6c6e2861-abcb-43aa-94d0-a700fbedf551",
+        "username": "ticklishswan652",
+        "password": "ricardo",
+        "salt": "m4R3n3vx",
+        "md5": "5580e2400200d2943ad99d8d2a20ce81",
+        "sha1": "aae40fe9e53098a3da68291535ab9d5b9fbc5d37",
+        "sha256": "51fc588f64230ba9b20bdc59b68398e4a5841fe0218886be9bb538222729f1e2"
+      },
+      "dob": {
+        "date": "1963-09-12T11:37:10.148Z",
+        "age": 61
+      },
+      "registered": {
+        "date": "2006-12-16T22:33:20.192Z",
+        "age": 18
+      },
+      "phone": "09-488-781",
+      "cell": "048-626-58-81",
+      "id": {
+        "name": "HETU",
+        "value": "NaNNA859undefined"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/69.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/69.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/69.jpg"
+      },
+      "nat": "FI"
+    },
+    {
+      "gender": "female",
+      "name": {
+        "title": "Miss",
+        "first": "Dunja",
+        "last": "Anđelić"
+      },
+      "location": {
+        "street": {
+          "number": 4990,
+          "name": "Vladike Platona "
+        },
+        "city": "Kraljevo",
+        "state": "Central Banat",
+        "country": "Serbia",
+        "postcode": 53755,
+        "coordinates": {
+          "latitude": "-81.2766",
+          "longitude": "-157.7223"
+        },
+        "timezone": {
+          "offset": "-12:00",
+          "description": "Eniwetok, Kwajalein"
+        }
+      },
+      "email": "dunja.andelic@example.com",
+      "login": {
+        "uuid": "3580b3eb-e3e5-45cd-9953-bf6dcbd2da3a",
+        "username": "blackbutterfly207",
+        "password": "camel",
+        "salt": "ebKj6dwe",
+        "md5": "0fcc41de2ee00c2e4e45c7916d01acfd",
+        "sha1": "cf6d5fd1d4eadec7b24aefe4a7432810d331c3d6",
+        "sha256": "d905de43c511b92e93a20d70b7fac3f4fb4a318f5263b263276ccbd90f7b8dee"
+      },
+      "dob": {
+        "date": "1975-11-27T03:04:28.732Z",
+        "age": 49
+      },
+      "registered": {
+        "date": "2018-10-27T17:17:52.693Z",
+        "age": 6
+      },
+      "phone": "030-5293-255",
+      "cell": "064-6689-685",
+      "id": {
+        "name": "SID",
+        "value": "237552233"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/94.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/94.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/94.jpg"
+      },
+      "nat": "RS"
+    },
+    {
+      "gender": "female",
+      "name": {
+        "title": "Ms",
+        "first": "Nalan",
+        "last": "Kulaksızoğlu"
+      },
+      "location": {
+        "street": {
+          "number": 2527,
+          "name": "Vatan Cd"
+        },
+        "city": "Hakkâri",
+        "state": "Çankırı",
+        "country": "Turkey",
+        "postcode": 53404,
+        "coordinates": {
+          "latitude": "5.8979",
+          "longitude": "116.9921"
+        },
+        "timezone": {
+          "offset": "+6:00",
+          "description": "Almaty, Dhaka, Colombo"
+        }
+      },
+      "email": "nalan.kulaksizoglu@example.com",
+      "login": {
+        "uuid": "d2d8dca3-0007-4e51-b109-2e15132118df",
+        "username": "happypeacock778",
+        "password": "riders",
+        "salt": "QExP2bnr",
+        "md5": "dc2e07dd4721ef68a83282ab806bed4d",
+        "sha1": "14572b4ccaa3a07aed52e305c5bcf3ff8bf2b9a6",
+        "sha256": "33722bc9d1496aaad9cbbb081669a8cd759392c0eb1a803ceec3b472a9c6d8a3"
+      },
+      "dob": {
+        "date": "1948-11-28T18:24:20.290Z",
+        "age": 76
+      },
+      "registered": {
+        "date": "2012-02-15T20:42:07.285Z",
+        "age": 13
+      },
+      "phone": "(606)-863-9608",
+      "cell": "(318)-977-9248",
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/62.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/62.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/62.jpg"
+      },
+      "nat": "TR"
+    }
+  ],
+  "info": {
+    "seed": "896070f7e08712c3",
+    "results": 5,
+    "page": 1,
+    "version": "1.4"
+  }
+}
