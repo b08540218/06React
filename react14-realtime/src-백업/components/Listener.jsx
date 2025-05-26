@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import {realtime} from '../realtimeConfig';
 import { ref, onValue} from 'firebase/database';
-import Navi from '../components/Navi';
+import Navi from './Navi';
 
 function Listener() {
   console.log('aa.realtime',realtime);

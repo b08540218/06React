@@ -2,7 +2,7 @@ import { useState } from "react";
 import { realtime } from "../realtimeConfig";
 import { ref, set} from "firebase/database";
 import { getDatabase, child, get, push, update, remove} from "firebase/database";
-import Navi from '../components/Navi';
+import Navi from './Navi';
 
 function RealtimeCRUD(){
   console.log('realtime',realtime);
