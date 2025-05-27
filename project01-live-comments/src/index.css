@@ -1,0 +1,17 @@
+#boardTable{
+  border: 1px solid gray; border-collapse: collapse; width: 85%;
+  margin: 10px;
+}
+#boardTable tr{
+  text-align: center;
+}
+#boardTable th{
+background-color: white;
+}
+#boardTable th, td{
+  border: 1px solid gray;
+}
+#boardTable td.subject{
+  text-align: left;
+}
+#btn{height: 100px;}
