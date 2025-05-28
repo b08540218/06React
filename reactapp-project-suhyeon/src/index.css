@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  max-width: 700px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  padding: 12px;
+  color: #333;
+  vertical-align: top;
+  width: 25%;
+}
+
+td {
+  padding: 12px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+select {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+button {
+  padding: 10px 16px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #357abd;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.email-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.email-group input[type="text"] {
+  width: 35%;
+}
+
+.email-group select {
+  width: auto;
+}
+
+.phone-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.phone-group input {
+  width: 25%;
+  text-align: center;
+}
+
+.inline-button {
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 600px) {
+  form {
+    padding: 20px;
+  }
+
+  th,
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  td {
+    padding-bottom: 20px;
+  }
+
+  .email-group,
+  .phone-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .email-group input[type="text"],
+  .email-group select,
+  .phone-group input {
+    width: 100%;
+  }
+
+  input,
+  select {
+    width: 100% !important;
+  }
+}
+
