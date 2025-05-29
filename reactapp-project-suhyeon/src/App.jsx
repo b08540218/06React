@@ -4,6 +4,7 @@ import Home from './components/Home';
 import TopNavi from './components/TopNavi';
 import Regist from "./components/members/Regist";
 import Login from "./components/members/Login";
+// import OnSave from "./components/members/OnSave";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/regist" element={<Regist />} />
       <Route path="/login" element={<Login/>}/>
+      {/* <Route path="/onsave" element={<OnSave/>}/> */}
       {/* 자유게시판 */}
       {/* <Route path="/freelist" element={<FreeList/>}/> */}
       {/* FreeList FreeView FreeWrite */}
