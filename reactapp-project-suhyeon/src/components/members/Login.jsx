@@ -8,7 +8,7 @@ function Login() {
 
   const getCookie = (name) => {
     const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-    return match ? match[2] : null;
+    return match ? decodeURIComponent(match[2]) : null;
   };
 
   const handleSubmit = (e) => {
@@ -16,7 +16,10 @@ function Login() {
 
     const savedEmail = getCookie('user_email');
 
-    if (savedEmail === email) {
+    if (savedEmail === email.trim()) {
+      // ✅ 로그인 상태 저장
+      sessionStorage.setItem('isAuthenticated', 'true');
+
       alert('로그인 성공!');
       navigate('/');
     } else {

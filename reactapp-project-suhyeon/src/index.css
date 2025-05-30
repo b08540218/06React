@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f6f8;
@@ -116,6 +117,28 @@ button:hover {
   margin-left: 8px;
 }
 
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ccc;
+  background-color: white;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
 @media screen and (max-width: 600px) {
   form {
     padding: 20px;
@@ -148,4 +171,70 @@ button:hover {
     width: 100% !important;
   }
 }
+.post-view-wrapper {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
 
+.post-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.post-block {
+  margin-bottom: 20px;
+}
+
+.post-block strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.post-content {
+  min-height: 300px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.post-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.post-label {
+  font-weight: bold;
+  color: #444;
+  min-width: 60px;
+}
+
+.post-content {
+  min-height: 300px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
