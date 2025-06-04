@@ -7,7 +7,11 @@ function Login() {
   const navigate = useNavigate();
 
   const getCookie = (name) => {
+    // document.cookie는 브라우저에 저장된 모든 쿠키를 문자열로 반환합니다.
+    // RegExp를 이용해 찾고자 하는 쿠키 이름을 매칭
+
     const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    // decodeURIComponent로 URL 인코딩을 복원하여 최종 값 반환
     return match ? decodeURIComponent(match[2]) : null;
   };
 
@@ -17,11 +21,11 @@ function Login() {
     const savedEmail = getCookie('user_email');
 
     if (savedEmail === email.trim()) {
-      // ✅ 로그인 상태 저장
+      // 로그인 상태 저장
       sessionStorage.setItem('isAuthenticated', 'true');
 
       alert('로그인 성공!');
-      navigate('/');
+      navigate('/'); // 메인 페이지로 이동
     } else {
       alert('로그인 실패: 이메일 정보가 일치하지 않습니다.');
     }

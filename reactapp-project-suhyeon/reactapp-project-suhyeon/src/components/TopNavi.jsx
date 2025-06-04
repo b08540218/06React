@@ -5,6 +5,7 @@ function TopNavi() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userEmail, setUserEmail] = useState(null);
 
   const getCookie = (name) => {
     const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
@@ -12,31 +13,38 @@ function TopNavi() {
   };
 
   useEffect(() => {
-    const userEmail = getCookie("user_email");
+    const email = getCookie("user_email");
     const isAuth = sessionStorage.getItem("isAuthenticated") === "true";
-    setIsLoggedIn(!!userEmail && isAuth); // 둘 다 만족해야 로그인 상태로 간주
+    setIsLoggedIn(!!email && isAuth);
+    setUserEmail(isAuth ? email : null);
   }, [location]);
 
   const handleLogout = () => {
     document.cookie = "user_email=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    sessionStorage.removeItem("isAuthenticated"); // 세션도 삭제
+    sessionStorage.removeItem("isAuthenticated");
     setIsLoggedIn(false);
+    setUserEmail(null);
     navigate('/');
   };
 
   return (
     <nav className="top-nav">
-      <div>
-        <NavLink to="/">Home</NavLink>&nbsp;
-        <NavLink to="/freelist">자유게시판</NavLink>&nbsp;
-        <NavLink to="/qnalist">QnA</NavLink>&nbsp;
-        <NavLink to="/regist">회원가입</NavLink>&nbsp;
+      <div className="nav-links">
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/freelist">자유게시판</NavLink>
+        <NavLink to="/filelist">자료실 게시판</NavLink>
+        <NavLink to="/qnalist">QnA</NavLink>
+        <NavLink to="/regist">회원가입</NavLink>
         {!isLoggedIn && <NavLink to="/login">로그인</NavLink>}
       </div>
+
       {isLoggedIn && (
-        <button className="logout-button" onClick={handleLogout}>
-          로그아웃
-        </button>
+        <div className="welcome-box">
+          <span>환영합니다 {userEmail}</span>
+          <button className="logout-btn" onClick={handleLogout}>
+            로그아웃
+          </button>
+        </div>
       )}
     </nav>
   );

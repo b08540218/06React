@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { db } from '../../firebase';
-import { doc, getDoc, collection, addDoc, getDocs, query, orderBy, serverTimestamp, } from 'firebase/firestore';
+import { deleteDoc, doc } from 'firebase/firestore';
+import { getDoc, collection, addDoc, getDocs, query, orderBy, serverTimestamp, } from 'firebase/firestore';
 
 const QnaView = () => {
   const { postId } = useParams();
@@ -32,19 +33,23 @@ const QnaView = () => {
         console.error('게시글 로드 실패:', err);
       }
     };
-
+    // Firestore에서 해당 게시글의 댓글 목록을 가져오는 함수
     const fetchComments = async () => {
       try {
+         // 'qnaPosts/{postId}/comments' 컬렉션에서 작성일 기준으로 정렬된 쿼리 생성
         const q = query(
           collection(db, 'qnaPosts', postId, 'comments'),
           orderBy('createdAt', 'asc')
         );
+        // 쿼리 실행 ->snapshot으로 받아옴
         const snapshot = await getDocs(q);
+
+        // 문서 데이터를 배열로 변환하여 상태로 저장
         const list = snapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),
         }));
-        setComments(list);
+        setComments(list); // 화면에 댓글 목록 렌더링
       } catch (err) {
         console.error('댓글 로드 실패:', err);
       }
@@ -54,24 +59,33 @@ const QnaView = () => {
     fetchComments();
   }, [postId]);
 
+  // 댓글 입력 폼 제출 처리 함수
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
+
+    // 로그인 여부 체크
     if (!userEmail) {
       alert('로그인 후 댓글 작성이 가능합니다.');
       return;
     }
+    // 내용이 비어있는지 체크
     if (!commentContent.trim()) {
       alert('댓글 내용을 입력해주세요.');
       return;
     }
 
     try {
+      // Firestore에 댓글 추가 (qnaPosts/{postId}/comments)
       await addDoc(collection(db, 'qnaPosts', postId, 'comments'), {
-        content: commentContent,
-        author: userEmail,
-        createdAt: serverTimestamp(),
+        content: commentContent, // 댓글 내용
+        author: userEmail,       // 작성자 이메일
+        createdAt: serverTimestamp(),  // 서버 기준 작성 시각
       });
+
+      // 입력창 초기화
       setCommentContent('');
+
+      // 댓글 목록 새로 불러와 상태 업데이트
       const snapshot = await getDocs(
         query(collection(db, 'qnaPosts', postId, 'comments'), orderBy('createdAt', 'asc'))
       );
@@ -89,6 +103,19 @@ const QnaView = () => {
 
   if (!post) return <div>로딩 중...</div>;
 
+  const handleDelete = async () => {
+    if (window.confirm('정말 이 질문을 삭제하시겠습니까?')) {
+      try {
+        await deleteDoc(doc(db, 'qnaPosts', postId));
+        alert('질문이 삭제되었습니다.');
+        navigate('/qnalist');
+      } catch (error) {
+        console.error('질문 삭제 오류:', error);
+        alert('질문 삭제 중 오류가 발생했습니다.');
+      }
+    }
+  };
+
   return (
     <div style={{ maxWidth: '800px', margin: '50px auto' }}>
       <h2 style={{ textAlign: 'center' }}>Q&A 질문 상세</h2>
@@ -100,6 +127,11 @@ const QnaView = () => {
           <Link to="/qnalist">
             <button>목록으로</button>
           </Link>
+          {userEmail === post.author && (
+            <button onClick={handleDelete} style={{ marginLeft: '10px' }}>
+              질문 삭제
+            </button>
+          )} 
         </div>
       </div>
 

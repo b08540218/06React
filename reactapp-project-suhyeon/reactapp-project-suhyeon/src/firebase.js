@@ -9,6 +9,7 @@ const firebaseConfig = {
   authDomain: "projectapps-b22bd.firebaseapp.com",
   projectId: "projectapps-b22bd",
   storageBucket: "projectapps-b22bd.firebasestorage.app",
+  // storageBucket: "projectapps-b22bd.appspot.com", // ✅ 수정!!
   messagingSenderId: "242636432854",
   appId: "1:242636432854:web:a94321a874b940ac33f077",
   measurementId: "G-PSHWZQN6LM"

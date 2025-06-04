@@ -4,10 +4,11 @@ import { db } from '../../firebase';
 import { Link } from 'react-router-dom';
 
 const FreeList = () => {
-  const [posts, setPosts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 5;
+  const [posts, setPosts] = useState([]); // 게시물 목록 상태르 표시
+  const [currentPage, setCurrentPage] = useState(1); //현재 페이지
+  const postsPerPage = 10; // 한페이지에 표시되는 개시물의 총갯수
 
+  // Firestore에서 게시물 데이터 가져오기
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -17,7 +18,7 @@ const FreeList = () => {
           id: doc.id,
           ...doc.data()
         }));
-        setPosts(data);
+        setPosts(data); // 상태에 저장
       } catch (err) {
         console.error('데이터 불러오기 실패:', err);
       }
@@ -25,7 +26,7 @@ const FreeList = () => {
 
     fetchPosts();
   }, []);
-
+  // 날짜 포맷 함수
   const formatDate = (timestamp) => {
     if (!timestamp?.toDate) return '';
     const date = timestamp.toDate();
@@ -48,7 +49,7 @@ const FreeList = () => {
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
           <tr style={{ backgroundColor: '#f0f0f0' }}>
-            <th style={{ padding: '10px' }}>번호</th>
+            <th style={{ padding: '10px', textAlign: 'center', width: '60px' }}>번호</th>
             <th style={{ padding: '10px' }}>제목</th>
             <th style={{ padding: '10px' }}>작성자</th>
             <th style={{ padding: '10px' }}>작성일</th>
@@ -57,7 +58,8 @@ const FreeList = () => {
         <tbody>
           {currentPosts.map((post, index) => (
             <tr key={post.id} style={{ borderBottom: '1px solid #ddd' }}>
-              <td style={{ padding: '10px', textAlign: 'center' }}>{posts.length - (indexOfFirst + index)}</td>
+              <td style={{ padding: '10px', textAlign: 'center', width: '60px' }}>
+                {posts.length - (indexOfFirst + index)}</td>
               <td style={{ padding: '10px' }}>
                 <Link to={`/freeview/${post.id}`}>{post.title}</Link>
               </td>
@@ -88,22 +90,24 @@ const FreeList = () => {
           </button>
         ))}
       </div>
-       <Link to="/freewrite">
-        <button style={{
-          position: 'fixed',
-          bottom: '30px',
-          right: '30px',
-          backgroundColor: '#4CAF50',
-          color: 'white',
-          border: 'none',
-          borderRadius: '50%',
-          width: '60px',
-          height: '60px',
-          fontSize: '24px',
-          cursor: 'pointer',
-          boxShadow: '0 4px 6px rgba(0,0,0,0.2)'
-        }}>
-          +
+      <Link to="/freewrite">
+        <button
+          style={{
+            position: 'fixed',
+            bottom: '30px',
+            right: '30px',
+            backgroundColor: '#4CAF50',
+            color: 'white',
+            border: 'none',
+            borderRadius: '8px', // 원하면 4px이나 12px도 가능
+            padding: '10px 16px', // ← 중요: 글자에 맞는 여백
+            fontSize: '16px',
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.2)'
+          }}
+        >
+          글쓰기
         </button>
       </Link>
     </div>

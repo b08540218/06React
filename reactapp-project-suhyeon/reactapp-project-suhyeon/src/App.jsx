@@ -12,6 +12,9 @@ import QnaWrite from "./components/board/QnaWrite";
 import QnaList from "./components/board/QnaList";
 import QnaView from "./components/board/QnaView";
 import QnaEdit from "./components/board/QnaEdit";
+import FileList from "./components/board/FileList";
+import FileWrite from "./components/board/FileWrite";
+import FileView from "./components/board/FileView";
 
 
 function App() {
@@ -28,10 +31,14 @@ function App() {
       <Route path="/freeview/:postId" element={<FreeView />} />
       <Route path="/freeedit/:postId" element={<FreeEdit />} />
       {/* QnA게시판 */}
-      <Route path="/qnawrite" element={<QnaWrite />} />
       <Route path="/qnalist" element={<QnaList />} />
+      <Route path="/qnawrite" element={<QnaWrite />} />
       <Route path="/qnaview/:postId" element={<QnaView />} />
       <Route path="/qnaedit/:postId/:commentId" element={<QnaEdit />} />
+      {/* 자료실 게시판 */}
+      <Route path="/filelist" element={<FileList/>}/>
+      <Route path="/filewrite" element={<FileWrite/>}/>
+      <Route path="/fileview/:id" element={<FileView/>}/>
     </Routes>
   </>)
 }

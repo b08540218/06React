@@ -238,3 +238,50 @@ button:hover {
   overflow-wrap: break-word;
   box-sizing: border-box;
 }
+/* 네비게이션 전체 */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* 네비게이션 링크 영역 */
+.top-nav .nav-links a {
+  margin-right: 16px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.top-nav .nav-links a.active {
+  color: #007bff;
+}
+
+/* 우측 로그인 박스 */
+.welcome-box {
+  background-color: #f4f4f4;
+  padding: 10px 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* 로그아웃 버튼 */
+.logout-btn {
+  padding: 6px 10px;
+  background-color: #ff5c5c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
